@@ -84,11 +84,8 @@ const Profile = () => {
         }).then((res) => res.json());
         console.log(res);
         setImage(res.avatar);
+        dispatch(setUsersData(res));
       }
-  }
-
-  const handleUpload = async () => {
-    
   }
 
   return (

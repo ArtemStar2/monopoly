@@ -5,7 +5,7 @@ const AddFriends = () => {
   const [friends, setFriends] = useState(Array());
   const user = profileUsers((state) => state.profileReducer);
   useEffect(() => {
-    fetch('https://api.monopoly-dapp.com/users/', { 
+    fetch('https://api.monopoly-dapp.com/users/all/', { 
       method: 'GET',
       headers: {
           'accept': 'application/json',
@@ -14,6 +14,7 @@ const AddFriends = () => {
     })
     .then(response => response.json())
     .then(json => {
+      console.log(user.authorization);
       console.log(json);
       setFriends(json);
     });

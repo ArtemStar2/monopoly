@@ -29,6 +29,7 @@ const Register = () => {
     if (window.ethereum) {
       try {
         const account = await connectWalletProvider.send('eth_requestAccounts', [{}]);
+        
         console.log(account);
         fetch('https://api.monopoly-dapp.com/auth/', { 
           method: 'POST',
@@ -53,6 +54,7 @@ const Register = () => {
             })
             .then(response => response.json())
             .then(json => {
+              console.log(json);
               dispatch(setWalletAddress(account[0]));
               dispatch(setIsAuth(true));
               dispatch(setUsersData(json));
